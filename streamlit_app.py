@@ -14,6 +14,7 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
+st.set_page_config(layout = 'wide')
 st.session_state.selected_materials = {}
 st.session_state.selected_oxides = {}
 
