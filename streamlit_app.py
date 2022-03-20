@@ -78,11 +78,13 @@ with st.echo(code_location='below'):
         col5.subheader("Max possible")
 
         options = {}
-        min_perc = {}
-        max_perc = {}
+        min_constraint = {}
+        max_constraint = {}
+        min_possible = {}
+        max_possible = {}
 
         for n in range(4):       
-            col1, col2, col3 = st.columns([2,1,1])
+            col1, col2, col3, col4, col5 = st.columns([2,1,1,1,1])
             options[n] = col1.selectbox(
              '',
              ('', 'Kaolin', 'Silica', 'Feldspar'),
@@ -90,14 +92,14 @@ with st.echo(code_location='below'):
              #on_change=add_material,
              #args=material_id
               )
-            min_perc[n] = col2.number_input(
+            min_constraint[n] = col2.number_input(
              '',
              min_value=0.0,
              max_value=100.0,
              step=0.1,
              key = 'Min {}'.format(n)
              )
-            max_perc[n] = col3.number_input(
+            max_constraint[n] = col3.number_input(
              '',
              min_value=0.0,
              max_value=100.0,
@@ -107,6 +109,8 @@ with st.echo(code_location='below'):
              #on_change=add_material,
              #args=material_id
              )
+            min_possible[n] = col4.text('')
+            max_possible[n] = col5.text('')
                                    
     with oxide_input:
         col1, col2, col3, col4, col5 = st.columns([2,1,1,1,1])
