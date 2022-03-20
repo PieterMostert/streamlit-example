@@ -2,6 +2,7 @@ from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
+import requests
 import streamlit as st
 
 st.set_page_config(layout = 'wide')
