@@ -34,6 +34,8 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
     
-    option = st.selectbox(
+    col1, col2 = st.columns(2)
+    col1.header("Column 1")
+    option = col1.selectbox(
      'Material',
      ('Kaolin', 'Silica', 'Feldspar'))
