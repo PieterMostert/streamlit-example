@@ -42,8 +42,8 @@ with st.echo(code_location='below'):
         .encode(x='x:Q', y='y:Q'))
     
     col1, col2, col3 = st.columns(3)
-        col1.header("Material")
-        col2.header("Min %")
+    col1.header("Material")
+    col2.header("Min %")
     
     options = {}
     min_perc = {}
