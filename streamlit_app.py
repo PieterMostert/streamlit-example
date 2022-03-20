@@ -18,12 +18,12 @@ st.session_state.selected_materials = {}
 st.session_state.selected_oxides = {}
 
 def add_material(n):
-    material_id = st.session_state['Material {}.format(n)]
+    material_id = st.session_state['Material {}'.format(n)]
     with requests.Session() as session:
         get_url = 'https://glazy.org/api/recipes/{}'.format(material_id)
         r = session.get(get_url) #, headers=request_headers)
         j = json.loads(r.text)
-    st.session_state['Material {}'.format(material_id)] = j
+    st.session_state['Material {} analysis'.format(material_id)] = j
     
 def add_oxides():
     for ox in st.session_state.selected_oxides:       
