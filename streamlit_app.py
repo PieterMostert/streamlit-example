@@ -18,6 +18,14 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 st.session_state.selected_materials = {}
 st.session_state.selected_oxides = {}
+st.session_state.inventory = []
+
+def get_inventory(user_id):
+    with requests.Session() as session:
+        get_url = 'https://glazy.org/api/usermaterials?u={}'.format(user_id)
+        r = session.get(get_url)
+        j = json.loads(r.text)
+        st.session_state.inventory = [x['materialName'] for x in j['data']]
 
 def add_material(n):
     material_id = st.session_state['Material {}'.format(n)]
@@ -68,8 +76,12 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
     
+    user = st.container()
     material_input = st.container()
     oxide_input = st.container()
+    
+    with user:
+        st.text_input('Glazy user ID', on_change=get_inventory)
                                    
     with material_input:
         col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1])
@@ -89,7 +101,7 @@ with st.echo(code_location='below'):
             col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1])
             options[n] = col1.selectbox(
              '',
-             ('', 'Kaolin', 'Silica', 'Feldspar'),
+             [''] + st.session_state.inventory,
              key = 'Material {}'.format(n),
              #on_change=add_material,
              #args=material_id
