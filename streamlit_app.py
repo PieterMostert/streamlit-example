@@ -63,7 +63,8 @@ with st.echo(code_location='below'):
          min_value=0.0,
          max_value=100.0,
          step=0.1,
-         key = 'Min {}'.format(n),
+         key = 'Min {}'.format(n)
+         )
         max_perc[n] = col3.number_input(
          '',
          min_value=0.0,
