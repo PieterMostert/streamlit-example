@@ -71,9 +71,9 @@ with st.echo(code_location='below'):
                                    
     with material_input:
         col1, col2, col3 = st.columns([2,1,1])
-        col1.header("Material")
-        col2.header("Min %")
-        col3.header("Max %")
+        col1.caption("Material")
+        col2.caption("Min %")
+        col3.caption("Max %")
 
         options = {}
         min_perc = {}
@@ -108,6 +108,6 @@ with st.echo(code_location='below'):
                                    
     with oxide_input:
         col1, col2, col3 = st.columns([2,1,1])
-        col1.header("Oxide")
-        col2.header("Min %")
-        col3.header("Max %")
+        col1.caption("Oxide")
+        col2.caption("Min %")
+        col3.caption("Max %")
