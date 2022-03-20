@@ -41,17 +41,22 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
     
+    col1, col2, col3 = st.columns(3)
+        col1.header("Material")
+        col2.header("Min %")
+    
+    options = {}
+    min_perc = {}
+    
     for n in range(4):       
         col1, col2, col3 = st.columns(3)
-        col1.header("Material")
-        option = col1.selectbox(
-         'Material',
+        options[n] = col1.selectbox(
+         '',
          ('Kaolin', 'Silica', 'Feldspar'),
          #on_change=add_material,
          #args=material_id
           )
-        col2.header("Min %")
-        min_perc = col2.number_input(
+        min_perc[n] = col2.number_input(
          '',
          min_value=0.0,
          max_value=100.0,
