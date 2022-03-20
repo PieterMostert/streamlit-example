@@ -70,10 +70,12 @@ with st.echo(code_location='below'):
     oxide_input = st.container()
                                    
     with material_input:
-        col1, col2, col3 = st.columns([2,1,1])
+        col1, col2, col3 = st.columns([2,1,1,1,1])
         col1.subheader("Material")
-        col2.caption("Min %")
-        col3.caption("Max %")
+        col2.subheader("Min constraint")
+        col3.subheader("Max constraint")
+        col4.subheader("Min possible")
+        col5.subheader("Max possible")
 
         options = {}
         min_perc = {}
@@ -107,7 +109,9 @@ with st.echo(code_location='below'):
              )
                                    
     with oxide_input:
-        col1, col2, col3 = st.columns([2,1,1])
-        col1.caption("Oxide")
-        col2.caption("Min %")
-        col3.caption("Max %")
+        col1, col2, col3 = st.columns([2,1,1,1,1])
+        col1.subheader("Oxide")
+        col2.subheader("Min constraint")
+        col3.subheader("Max constraint")
+        col4.subheader("Min possible")
+        col5.subheader("Max possible")
