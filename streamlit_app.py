@@ -53,6 +53,7 @@ with st.echo(code_location='below'):
         options[n] = col1.selectbox(
          '',
          ('Kaolin', 'Silica', 'Feldspar'),
+         key = 'Material {}'.format(n),
          #on_change=add_material,
          #args=material_id
           )
@@ -61,6 +62,7 @@ with st.echo(code_location='below'):
          min_value=0.0,
          max_value=100.0,
          step=0.1,
+         key = 'Min {}'.format(n),
          #on_change=add_material,
          #args=material_id
           )
