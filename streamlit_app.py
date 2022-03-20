@@ -35,8 +35,8 @@ def add_material(n):
     with requests.Session() as session:
         get_url = 'https://glazy.org/api/recipes/{}'.format(material_id)
         r = session.get(get_url) #, headers=request_headers)
-        j = json.loads(r.text)
-    st.session_state['Material {} analysis'.format(material_id)] = j
+        #j = json.loads(r.text)
+    #st.session_state['Material {} analysis'.format(material_id)] = j
     
 def add_oxides():
     for ox in st.session_state.selected_oxides:       
