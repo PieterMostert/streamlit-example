@@ -22,7 +22,6 @@ def add_material(material_id, container):
         r = session.get(get_url) #, headers=request_headers)
         j = json.loads(r.text)
     materials[material_id] = j
-    container.
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
