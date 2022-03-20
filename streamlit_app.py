@@ -14,7 +14,15 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
+materials = {}
 
+def add_material(material_id, container):
+    with requests.Session() as session:
+        get_url = 'https://glazy.org/api/recipes/{}'.format(material_id)
+        r = session.get(get_url) #, headers=request_headers)
+        j = json.loads(r.text)
+    materials[material_id] = j
+    container.
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
@@ -34,8 +42,21 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
     
-    col1, col2 = st.columns(2)
-    col1.header("Column 1")
-    option = col1.selectbox(
-     'Material',
-     ('Kaolin', 'Silica', 'Feldspar'))
+    for n in range(4):       
+        col1, col2, col3 = st.columns(3)
+        col1.header("Material")
+        option = col1.selectbox(
+         'Material',
+         ('Kaolin', 'Silica', 'Feldspar'),
+         #on_change=add_material,
+         #args=material_id
+          )
+        col2.header("Min %")
+        min_perc = col2.number_input(
+         '',
+         min_value=0.0,
+         max_value=100.0,
+         step=0.1,
+         #on_change=add_material,
+         #args=material_id
+          )
