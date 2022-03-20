@@ -48,6 +48,7 @@ with st.echo(code_location='below'):
     
     options = {}
     min_perc = {}
+    max_perc = {}
     
     for n in range(4):       
         col1, col2, col3 = st.columns([2,1,1])
