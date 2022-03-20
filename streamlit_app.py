@@ -24,7 +24,6 @@ with st.echo(code_location='below'):
     data = []
 
     for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
         radius = math.sqrt(curr_point_num)
         angle = radius * 2 * math.pi * alpha
         x = radius * math.cos(angle)
