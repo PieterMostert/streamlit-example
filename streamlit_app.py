@@ -18,7 +18,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    alpha = st.slider("Alpha", 0, 10, 0.5, step=0.001)
+    alpha = st.slider("Alpha", 0, 10, 0.5, 0.001)
 
     Point = namedtuple('Point', 'x y')
     data = []
