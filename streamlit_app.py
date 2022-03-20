@@ -83,8 +83,7 @@ with st.echo(code_location='below'):
             col1, col2, col3 = st.columns([2,1,1])
             options[n] = col1.selectbox(
              '',
-             ('Kaolin', 'Silica', 'Feldspar'),
-             index=None,
+             ('', 'Kaolin', 'Silica', 'Feldspar'),
              key = 'Material {}'.format(n),
              #on_change=add_material,
              #args=material_id
