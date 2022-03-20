@@ -18,11 +18,12 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 st.session_state.selected_materials = {}
 st.session_state.selected_oxides = {}
+st.session_state.user_id = ''
 st.session_state.inventory = []
 
-def get_inventory(user_id):
+def get_inventory():
     with requests.Session() as session:
-        get_url = 'https://glazy.org/api/usermaterials?u={}'.format(user_id)
+        get_url = 'https://glazy.org/api/usermaterials?u={}'.format(st.session_state.user_id)
         r = session.get(get_url)
         j = json.loads(r.text)
         st.session_state.inventory = [x['materialName'] for x in j['data']]
