@@ -71,7 +71,7 @@ with st.echo(code_location='below'):
                                    
     with material_input:
         col1, col2, col3 = st.columns([2,1,1])
-        col1.caption("Material")
+        col1.subheader("Material")
         col2.caption("Min %")
         col3.caption("Max %")
 
