@@ -41,7 +41,7 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3, spec=(2,1,1))
     col1.header("Material")
     col2.header("Min %")
     
