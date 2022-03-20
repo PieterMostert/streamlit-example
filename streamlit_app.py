@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(layout = 'wide')
 """
 # Welcome to Streamlit!
 
@@ -14,7 +15,7 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
-st.set_page_config(layout = 'wide')
+
 st.session_state.selected_materials = {}
 st.session_state.selected_oxides = {}
 
