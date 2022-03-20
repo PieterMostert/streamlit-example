@@ -49,7 +49,7 @@ with st.echo(code_location='below'):
     min_perc = {}
     
     for n in range(4):       
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3, spec=(2,1,1))
         options[n] = col1.selectbox(
          '',
          ('Kaolin', 'Silica', 'Feldspar'),
