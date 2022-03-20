@@ -99,7 +99,7 @@ with st.echo(code_location='below'):
              '',
              min_value=0.0,
              max_value=100.0,
-             value=100,
+             value=100.0,
              step=0.1,
              key = 'Max {}'.format(n),
              #on_change=add_material,
