@@ -25,7 +25,7 @@ with st.echo(code_location='below'):
 
     for curr_point_num in range(total_points):
         radius = math.sqrt(curr_point_num)
-        angle = radius * 2 * math.pi * alpha
+        angle = radius * 2 * math.pi * math.sqrt(alpha)
         x = radius * math.cos(angle)
         y = radius * math.sin(angle)
         data.append(Point(x, y))
