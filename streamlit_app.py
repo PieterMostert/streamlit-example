@@ -44,6 +44,7 @@ with st.echo(code_location='below'):
     col1, col2, col3 = st.columns([2,1,1])
     col1.header("Material")
     col2.header("Min %")
+    col3.header("Max %")
     
     options = {}
     min_perc = {}
@@ -63,6 +64,12 @@ with st.echo(code_location='below'):
          max_value=100.0,
          step=0.1,
          key = 'Min {}'.format(n),
+         max_perc[n] = col3.number_input(
+         '',
+         min_value=0.0,
+         max_value=100.0,
+         step=0.1,
+         key = 'Max {}'.format(n),
          #on_change=add_material,
          #args=material_id
           )
