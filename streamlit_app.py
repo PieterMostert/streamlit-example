@@ -25,7 +25,7 @@ st.session_state.inventory = []
 
 def get_inventory(b):
     with requests.Session() as session:
-        get_url = 'https://glazy.org/api/usermaterials?u={}'.format(ss.session_state.user_id)
+        get_url = 'https://glazy.org/api/usermaterials?u={}'.format(st.session_state.user_id)
         r = session.get(get_url)
         j = json.loads(r.text)
         st.session_state.inventory = [x['materialName'] for x in j['data']]
