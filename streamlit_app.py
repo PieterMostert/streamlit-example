@@ -29,7 +29,7 @@ def get_inventory(b):
         r = session.get(get_url)
         j = json.loads(r.text)
         st.session_state.inventory = [x['materialName'] for x in j['data']]
-        b.text(j['data])
+        b.text(j['data'])
 
 def add_material(n):
     material_id = st.session_state['Material {}'.format(n)]
