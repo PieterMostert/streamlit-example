@@ -29,6 +29,7 @@ def get_inventory():
         r = session.get(get_url)
         j = json.loads(r.text)
         st.session_state.inventory = [x['materialName'] for x in j['data']]
+        st.session_state.text_box = st.session_state.inventory[0]
 
 def add_material(n):
     material_id = st.session_state['Material {}'.format(n)]
@@ -85,6 +86,7 @@ with st.echo(code_location='below'):
     
     with user:
         st.text_input('Glazy user ID', on_change=get_inventory)
+        st.text('', key='text_box')
                                    
     with material_input:
         col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1])
