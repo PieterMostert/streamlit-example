@@ -23,13 +23,13 @@ st.session_state.selected_oxides = {}
 st.session_state.user_id = ''
 st.session_state.inventory = []
 
-def get_inventory():
+def get_inventory(b):
     with requests.Session() as session:
         get_url = 'https://glazy.org/api/usermaterials?u={}'.format(st.session_state.user_id)
         r = session.get(get_url)
         j = json.loads(r.text)
         st.session_state.inventory = [x['materialName'] for x in j['data']]
-        st.session_state.text_box = st.session_state.inventory[0]
+        b.text(st.session_state.inventory[0])
 
 def add_material(n):
     material_id = st.session_state['Material {}'.format(n)]
@@ -85,8 +85,9 @@ with st.echo(code_location='below'):
     oxide_input = st.container()
     
     with user:
-        st.text_input('Glazy user ID', on_change=get_inventory)
-        st.text('', key='text_box')
+        b = st.empty()
+        st.text_input('Glazy user ID', on_change=get_inventory, args = (b,))
+        
                                    
     with material_input:
         col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1])
