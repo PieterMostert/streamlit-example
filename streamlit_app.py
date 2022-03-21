@@ -20,12 +20,12 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 st.session_state.selected_materials = {}
 st.session_state.selected_oxides = {}
-st.session_state.user_id = ''
+#st.session_state.user_id = ''
 st.session_state.inventory = []
 
-def get_inventory(b):
+def get_inventory(b, user_id):
     with requests.Session() as session:
-        get_url = 'https://glazy.org/api/usermaterials?u={}'.format(st.session_state.user_id)
+        get_url = 'https://glazy.org/api/usermaterials?u={}'.format(user_id)
         r = session.get(get_url)
         j = json.loads(r.text)
         st.session_state.inventory = [x['materialName'] for x in j['data']]
@@ -86,7 +86,7 @@ with st.echo(code_location='below'):
     
     with user:
         b = st.empty()
-        st.text_input('Glazy user ID', on_change=get_inventory, args = (b,))
+        st.text_input('Glazy user ID', key='user_id', on_change=get_inventory, args = (b, st.session_state.user_id))
         
                                    
     with material_input:
