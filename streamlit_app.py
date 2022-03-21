@@ -85,7 +85,10 @@ with st.echo(code_location='below'):
     oxide_input = st.container()
     
     with user:
-        b = st.empty()
+        if 'user_id' in st.session_state:
+            pass
+        else:
+            b = st.empty()
         st.text_input('Glazy user ID', key='user_id', on_change=get_inventory, args = (b, ))
         
                                    
